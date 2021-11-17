@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="ad-index">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-blue">
+                    <div class="inner">
+                        <h3> Địa điểm </h3>
+                        <p> Quản lý địa điểm </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <a href="@Url.Action("Index","DiaDiems")" class="card-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3> Loại địa điểm </h3>
+                        <p> Quản lý loại địa điểm </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-orange">
+                    <div class="inner">
+                        <h3> Tài khoản </h3>
+                        <p> Quản lý tài khoản quản trị </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-red">
+                    <div class="inner">
+                        <h3> 723 </h3>
+                        <p> Tổng lượt truy cập </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

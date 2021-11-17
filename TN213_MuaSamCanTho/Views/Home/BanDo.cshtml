@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license.
+Although you can use them, for a more unique website, replace these images with your own. -->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Business 2</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="/Content/css/custom.css" rel="stylesheet">
+
+
+
+    <!-- Custom Fonts from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery -->
+    <script src="/Content/js/jquery-3.5.1.min.js"></script>
+
+    <link rel="stylesheet" href="/Content/css/leaflet.css">
+    <!--liên kết css của leaflet-->
+    <script src="/Content/js/leaflet.js"></script>
+    <!--liên kết js của leaflet-->
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-transparent border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bolder fs-3" href="../Home/Index"><i class="fa fa-shopping-cart"></i> T N 2 1 3 </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav navbar-right">
+                <li>
+                    <a href="@Url.Action("Index", "Admin")" class="text-decoration-none fw-bolder">Đăng nhập vào trang quản trị <i class="fa fa-sign-in"></i></a>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <div id="control-box">
+    </div>
+
+    <div class="left-side">
+        <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/xybox.jpg'); ">
+
+            <div>Tọa độ điểm đã chọn:</div>
+
+            <div>Latitude: <input type="text" class="form-control" id="textbox-x" readonly></div>
+
+            <div>Longtitude: <input type="text" class="form-control" id="textbox-y" readonly></div>
+        </div>
+
+        <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/toolbox.jpg');">
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Chọn loại địa điểm</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Tìm địa điểm trong phạm vi bán kính</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3"> Vị trí của bạn</label>
+            </div>
+
+        </div>
+
+        <div class="opac left-box" id="add-left-side" style="display:none"></div>
+
+    </div>
+
+    <div id="map"></div>
+
+
+
+    <footer>
+        <div class="page-footer contact"><marquee>TN213 - Xây dựng hệ thống thông tin địa lý</marquee></div>
+    </footer>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/Content/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/Content/js/jquery.easing.min.js"></script>
+
+    <!-- Custom Javascript -->
+    <script src="/Content/js/custom.js"></script>
+
+
+
+</body>
+
+</html>
