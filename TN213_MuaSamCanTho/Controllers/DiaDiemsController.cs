@@ -70,19 +70,19 @@ namespace TN213_MuaSamCanTho.Controllers
                 {
                     var fileName = Path.GetFileName(hinhAnh.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/LocationImages"), fileName); //Chuyển ảnh vào thư mục
-                    //if (System.IO.File.Exists(path))
-                    //{
-                    //    ViewBag.upload = "Hình đã tồn tại";
-                    //    return View();
-                    //}
-                    //else
+                    if (System.IO.File.Exists(path))
                     {
-                       hinhAnh.SaveAs(path);
+                        ViewBag.upload = "Hình đã tồn tại";
+                        return View();
+                    }
+                    else
+                    {
+                        hinhAnh.SaveAs(path);
                        diaDiem.HinhAnh = fileName;
                     }
                 }
                 else
-                    diaDiem.HinhAnh = "unknown.png";
+                    diaDiem.HinhAnh = "unknown.png"; //hình mặc định
             }
            
             diaDiem.The_Geom = DbGeometry.FromText(The_Geom_WKT);
@@ -119,8 +119,33 @@ namespace TN213_MuaSamCanTho.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,TenDiaDiem,MaLoai,DiaChi,ThoiGianPhucVu,The_Geom,HinhAnh,MoTa")] DiaDiem diaDiem)
+        public ActionResult Edit(DiaDiem diaDiem, HttpPostedFileBase hinhAnh, string The_Geom_WKT)
         {
+            if (hinhAnh != null)
+            {
+                if (hinhAnh.ContentLength > 0 && (hinhAnh.ContentType == "image/jpeg" || hinhAnh.ContentType == "image/png"))
+                {
+                    var fileName = Path.GetFileName(hinhAnh.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/LocationImages"), fileName); //Chuyển ảnh vào thư mục
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.upload = "Hình đã tồn tại";
+                        DiaDiem diaDiem_old = db.DiaDiems.Find(diaDiem.Id);
+                        ViewBag.MaLoai = new SelectList(db.LoaiDiaDiems, "MaLoai", "TenLoai", diaDiem.MaLoai);
+                        return View(diaDiem_old);
+                    }
+                    else
+                    {
+                        hinhAnh.SaveAs(path);
+                        var deletePath = "~/Content/LocationImages/" + diaDiem.HinhAnh;
+                        Console.WriteLine(RemoveFileFromServer(deletePath)); //Xóa ảnh cũ
+                        diaDiem.HinhAnh = fileName;
+                    }
+                }
+               
+            }
+
+            diaDiem.The_Geom = DbGeometry.FromText(The_Geom_WKT);
             if (ModelState.IsValid)
             {
                 db.Entry(diaDiem).State = EntityState.Modified;
@@ -164,6 +189,23 @@ namespace TN213_MuaSamCanTho.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool RemoveFileFromServer(string path)
+        {
+            var fullPath = Request.MapPath(path);
+            if (!System.IO.File.Exists(fullPath)) return false;
+
+            try //Maybe error could happen like Access denied or Presses Already User used
+            {
+                System.IO.File.Delete(fullPath);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return false;
         }
     }
 }

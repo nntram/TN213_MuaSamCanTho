@@ -116,3 +116,8 @@
     width:700px;
     margin: 20px;
 }
+
+.img-edit{
+    max-height:300px;
+    max-width:300px;
+}

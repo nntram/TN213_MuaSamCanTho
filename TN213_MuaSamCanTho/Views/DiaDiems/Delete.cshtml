@@ -4,78 +4,90 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<link href="~/Content/css/leaflet.css" rel="stylesheet" />
+<script src="~/Content/js/leaflet.js"></script>
+<script src="~/Content/Admin/admin.js"></script>
 
-<h2>Delete</h2>
+<div class="ad-container">
+    <h2>Xóa địa điểm</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>DiaDiem</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiDiaDiem.TenLoai)
-        </dt>
+    <h3>Bạn thực sự muốn xóa địa điểm này?</h3>
+    <p>Mã địa điểm: @Model.Id</p>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaLoai)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LoaiDiaDiem.TenLoai)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LoaiDiaDiem.TenLoai)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDiaDiem)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TenDiaDiem)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDiaDiem)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TenDiaDiem)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ThoiGianPhucVu)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.The_Geom)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ThoiGianPhucVu)
-        </dd>
+            <dd>
+                <div id="map" style="pointer-events: none;"></div>
+                <input class="form-control text-box single-line col-md-5" id="The_Geom_WKT" name="The_Geom_WKT" readonly required type="text" value="POINT(@Model.The_Geom.XCoordinate @Model.The_Geom.YCoordinate)">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.The_Geom)
-        </dt>
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.The_Geom)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ThoiGianPhucVu)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGianPhucVu)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.HinhAnh)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.HinhAnh)
+            </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh)
+                <img src="~/Content/LocationImages/@Model.HinhAnh" class="img-edit" />
+            </dd>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <dt>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MoTa)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xác nhận xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở về", "Index")
+            </div>
+        }
+    </div>
 </div>

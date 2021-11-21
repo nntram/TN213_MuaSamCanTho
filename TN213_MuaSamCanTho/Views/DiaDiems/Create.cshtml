@@ -6,6 +6,8 @@
 }
 <link href="~/Content/css/leaflet.css" rel="stylesheet" />
 <script src="~/Content/js/leaflet.js"></script>
+<script src="~/Content/Admin/admin.js"></script>
+
 <div class="ad-container" style="padding-bottom:30px">
 
     <h2>Thêm địa điểm mua sắm mới</h2>
@@ -21,7 +23,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.TenDiaDiem, htmlAttributes: new { @class = "control-label form-control-lg col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.TenDiaDiem, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.EditorFor(model => model.TenDiaDiem, new { htmlAttributes = new { @class = "form-control col-md-5", @required = "required" } })
             @Html.ValidationMessageFor(model => model.TenDiaDiem, "", new { @class = "text-danger" })
         </div>
     </div>
