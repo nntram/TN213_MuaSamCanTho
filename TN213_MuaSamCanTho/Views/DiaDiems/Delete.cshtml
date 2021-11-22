@@ -66,18 +66,11 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.HinhAnh)
                 <img src="~/Content/LocationImages/@Model.HinhAnh" class="img-edit" />
+                @Html.DisplayFor(model => model.HinhAnh)
             </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.MoTa)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.MoTa)
-            </dd>
-
+           
         </dl>
 
         @using (Html.BeginForm())

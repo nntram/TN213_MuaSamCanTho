@@ -91,10 +91,12 @@ namespace TN213_MuaSamCanTho.Controllers
             {
                 db.DiaDiems.Add(diaDiem);
                 db.SaveChanges();
+                TempData["success"] = "Thêm mới thành công!";
                 return RedirectToAction("Index");
             }
 
             ViewBag.MaLoai = new SelectList(db.LoaiDiaDiems, "MaLoai", "TenLoai", diaDiem.MaLoai);
+            TempData["error"] = "Thêm không thành công!";
             return View(diaDiem);
         }
 
@@ -150,9 +152,11 @@ namespace TN213_MuaSamCanTho.Controllers
             {
                 db.Entry(diaDiem).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["success"] = "Lưu thay đổi thành công!";
                 return RedirectToAction("Index");
             }
             ViewBag.MaLoai = new SelectList(db.LoaiDiaDiems, "MaLoai", "TenLoai", diaDiem.MaLoai);
+            TempData["error"] = "Lưu thay đổi không thành công!";
             return View(diaDiem);
         }
 
@@ -177,8 +181,10 @@ namespace TN213_MuaSamCanTho.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             DiaDiem diaDiem = db.DiaDiems.Find(id);
+            RemoveFileFromServer("~/Content/LocationImages/" + diaDiem.HinhAnh);//Xóa ảnh khỏi thư mục ảnh
             db.DiaDiems.Remove(diaDiem);
             db.SaveChanges();
+            TempData["success"] = "Đã xóa!";
             return RedirectToAction("Index");
         }
 

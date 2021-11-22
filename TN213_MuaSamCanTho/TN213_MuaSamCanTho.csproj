@@ -155,6 +155,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\images\blueicon.png" />
     <Content Include="Content\css\images\layers-2x.png" />
     <Content Include="Content\css\images\layers.png" />
@@ -162,10 +163,12 @@
     <Content Include="Content\css\images\marker-icon-2x.png" />
     <Content Include="Content\css\images\marker-icon.png" />
     <Content Include="Content\css\images\marker-shadow.png" />
+    <Content Include="Content\css\images\market-icon-png-18.jpg" />
     <Content Include="Content\css\images\redIcon.png" />
     <Content Include="Content\css\images\spritesheet-2x.png" />
     <Content Include="Content\css\images\spritesheet.png" />
     <Content Include="Content\css\images\spritesheet.svg" />
+    <Content Include="Content\css\toastr.css" />
     <Content Include="Content\css\leaflet.css" />
     <Content Include="Content\css\leaflet.draw.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -188,6 +191,7 @@
     <Content Include="Content\js\leaflet.js" />
     <Content Include="Content\js\Leaflet.TileLayer.MBTiles.js" />
     <Content Include="Content\js\tile_zoom_levels.png" />
+    <Content Include="Content\js\toastr.js" />
     <Content Include="Content\LocationImages\Bach_Hoa_Xanh_An_Thoi.png" />
     <Content Include="Content\LocationImages\Bach_Hoa_Xanh_Ba_Thang2.png" />
     <Content Include="Content\LocationImages\Bach_Hoa_Xanh_Binh_Thuy.png" />
@@ -229,6 +233,8 @@
     <Content Include="Content\LocationImages\VinMart_Tran_Quang_Khai.png" />
     <Content Include="Content\LocationImages\VinMart_Tran_Van_Kheo.png" />
     <Content Include="Content\LocationImages\VinMart_duong_30_4.png" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -246,6 +252,8 @@
     <Content Include="Content\js\leaflet-src.esm.js.map" />
     <Content Include="Content\js\leaflet-src.js.map" />
     <Content Include="Content\js\leaflet.js.map" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -259,6 +267,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -280,6 +290,7 @@
     <Content Include="Views\DiaDiems\Edit.cshtml" />
     <Content Include="Views\DiaDiems\Index.cshtml" />
     <Content Include="Views\DiaDiems\KQTimKiemPartial.cshtml" />
+    <Content Include="Views\Home\ThongBaoPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

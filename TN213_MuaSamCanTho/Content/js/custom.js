@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     //Khai báo đối tượng chính chứa bản đồ gắn vào thẻ div tên "mapObject"
     var mapObject = L.map("map", {
         center: [10.030249, 105.772097], //ĐHCT khu 2
@@ -12,7 +12,12 @@ $(document).ready(function() {
     ).addTo(mapObject);
 
     //Chuẩn bị lớp bản đồ chứa đối tượng
-    var layerObject = L.layerGroup().addTo(mapObject);
+    var layerObject = L.layerGroup();
+    var markerClusters = new L.MarkerClusterGroup();
+    mapObject.addLayer(markerClusters);
+
+
+    var findLocations = L.layerGroup().addTo(mapObject); //chứa các đối tượng tìm khi thỏa khoảng cách
 
     //Định các style cho point, line và polygon
     var pointStyle = L.icon({
@@ -31,9 +36,10 @@ $(document).ready(function() {
     };
 
     var pointStyle1 = L.icon({ //Cho điểm khi clich
-        iconUrl: "/Content/css/images/blueicon.png",
+        iconUrl: "/Content/css/images/market-icon-png-18.jpg",
         shadowUrl: "/Content/css/images/marker-shadow.png",
-        iconAnchor: [13, 41] //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
+        iconAnchor: [13, 30], //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
+        iconSize: [25, 30]
     });
     var pointStyle2 = L.icon({ //cho điểm khi tìm thỏa khoảng cách
         iconUrl: "/Content/css/images/redicon.png",
@@ -54,6 +60,10 @@ $(document).ready(function() {
         var popupOption = {
             className: "map-popup-content",
         };
+        layerObject.clearLayers();
+        markerClusters.clearLayers();
+        findLocations.clearLayers();
+
         L.geoJSON(data, {
             style: function (feature) { //qui định style cho các đối tượng
                 switch (feature.geometry.type) {
@@ -63,7 +73,9 @@ $(document).ready(function() {
                         return polygonStyle;
                 }
             },
-
+            pointToLayer: function (feature, latlng) {
+                return L.marker(latlng, { icon: pointStyle1 });
+            },
             onEachFeature: function (feature, layer) { //Mỗi đối tượng thêm popup vào
                 if (feature.properties) { //Có properties và có name
                     layer.bindPopup("<div class='left'><img src='/Content/LocationImages/" + feature.properties.hinhAnh + "'></div>" +
@@ -75,13 +87,20 @@ $(document).ready(function() {
                 }
             }
         }).addTo(layerObject);
+        markerClusters.addLayer(layerObject);
+
     }
 
     //Hiển thị tất cả đối tượng lên bản đồ
     function LoadAll() {
-        $.getJSON("/Home/LoadData", function(data) {
+       
+
+        $.getJSON("/Home/LoadData", function (data) {
             bindPopupFeatures(data);
+
         });
+
+
     };
     LoadAll();
 
@@ -92,7 +111,7 @@ $(document).ready(function() {
         icon: pointStyle2
     }).addTo(myLocation); //Mặc định tạo điểm tại trường ĐHCT
 
-    mapObject.on("click", function(e) {
+    mapObject.on("click", function (e) {
         myLocation.clearLayers();
         L.marker(e.latlng, {
             icon: pointStyle2
@@ -100,13 +119,15 @@ $(document).ready(function() {
 
         $("#textbox-x").val(e.latlng.lat.toFixed(6));
         $("#textbox-y").val(e.latlng.lng.toFixed(6));
+
+       
     })
-    var findLocations = L.layerGroup().addTo(mapObject); //chứa các đối tượng tìm khi thỏa khoảng cách
+
 
     //Lọc loại địa điểm
-    $('#inlineRadio1').click(function() {
-        layerObject.clearLayers();
-        findLocations.clearLayers();
+    $('#inlineRadio1').click(function () {
+
+
         LoadAll();
 
         //Thêm điều khiển mới là combo box rỗng lên bản đồ
@@ -115,11 +136,11 @@ $(document).ready(function() {
         $('#add-left-side').replaceWith(control1);
 
         //Lấy giá trị của cột Name không trùng thêm vào combo box
-       
-        $.getJSON("/Home/LayTenLoaiKhongTrung", function(data) {
+
+        $.getJSON("/Home/LayTenLoaiKhongTrung", function (data) {
             var menu = $("#combobox1");
             menu.append("<option>Tất cả</option>");
-            $.each(data, function(key, value) {
+            $.each(data, function (key, value) {
                 menu.append("<option>" + value + "</option>");
             });
         });
@@ -127,7 +148,7 @@ $(document).ready(function() {
         //Cập nhật đối tượng trên bản đồ khi combo box được chọn
         $("#combobox1").on("change", function () {
             var valueSelected = $("#combobox1").val();
-            layerObject.clearLayers();
+           
 
             if (valueSelected == "Tất cả") {
 
@@ -145,19 +166,18 @@ $(document).ready(function() {
 
             }
 
-        
+
         });
 
     });
 
 
 
-
     //Tìm trong bán kính
     $('#inlineRadio2').click(function () {
+
+        markerClusters.clearLayers();
         layerObject.clearLayers();
-        findLocations.clearLayers();
-        LoadAll();
 
         //Thêm điều khiển mới là Textbox rỗng lên bản đồ
         var control2 = $('<div class="opac left-box" id="add-left-side"><input id="textbox1" type="number" class="form-control"></input></div>');
@@ -167,34 +187,34 @@ $(document).ready(function() {
 
         function mapClick(e) {
             myLocation.clearLayers();
+            findLocations.clearLayers();
             L.marker(e.latlng, { icon: pointStyle2 }).addTo(myLocation);
             var clickCoords = e.latlng;
             var long = clickCoords.lng;
             var lat = clickCoords.lat;
 
-            findLocations.clearLayers();
-
             var value = $("#textbox1").val();
 
-            if (value != "") {
+            if (value != "" && $('#inlineRadio2').prop("checked")) {
+                layerObject.clearLayers();
                 $.getJSON("/Home/FindLocationWithDistance?long=" + long + "&lat=" + lat + "&val=" + value).done(function (data) {
                     L.geoJSON(data, {
                         onEachFeature: function (feature, layer) {
                             var objectCoords = feature.geometry.coordinates;
-                          
+
                             var des_point = L.marker([objectCoords[1], objectCoords[0]]);
 
                             var popupOption = {
                                 className: "map-popup-content",
-                            } 
-                                layer.bindPopup("<div class='left'><img src='/Content/LocationImages/" + feature.properties.hinhAnh + "'></div>" +
-                                    "<div class='right'><u><b>" + feature.properties.tenDiaDiem + "</b></u>"
-                                    + "<br><b>Loại địa điểm: </b>" + feature.properties.tenLoaiDiaDiem
-                                    + "<br><b>Địa chỉ: </b>" + feature.properties.diaChi
-                                    + "<br><b>Thời gian phục vụ: </b>" + feature.properties.thoiGianPhucVu
-                                    + "<br><b style='color:red'> Cách điểm chọn: " + (clickCoords.distanceTo(des_point._latlng) / 1000).toFixed(2) +" km </b></div>"
-                                    + "<div class='clearfix'></div>", popupOption);
-                           
+                            }
+                            layer.bindPopup("<div class='left'><img src='/Content/LocationImages/" + feature.properties.hinhAnh + "'></div>" +
+                                "<div class='right'><u><b>" + feature.properties.tenDiaDiem + "</b></u>"
+                                + "<br><b>Loại địa điểm: </b>" + feature.properties.tenLoaiDiaDiem
+                                + "<br><b>Địa chỉ: </b>" + feature.properties.diaChi
+                                + "<br><b>Thời gian phục vụ: </b>" + feature.properties.thoiGianPhucVu
+                                + "<br><b style='color:red'> Cách điểm chọn: " + (clickCoords.distanceTo(des_point._latlng) / 1000).toFixed(2) + " km </b></div>"
+                                + "<div class='clearfix'></div>", popupOption);
+
                             //console.log(objectCoords);
                             if (feature.geometry.type == "Point") {
                                 L.polyline([[lat, long], [objectCoords[1], objectCoords[0]]], lineStyle2).addTo(findLocations);
@@ -207,9 +227,9 @@ $(document).ready(function() {
                             }
                         },
                         //Có thể thêm để chủ động icon cho point
-                        //pointToLayer: function (feature, latlng){
-                        //						return L.marker(latlng, {icon:pointStyle1});			
-                        //},
+                        pointToLayer: function (feature, latlng) {
+                            return L.marker(latlng, { icon: pointStyle1 });
+                        },
                         //icon mặc định trong css/images
                         style: function () {
                             return lineStyle1;
@@ -224,15 +244,13 @@ $(document).ready(function() {
     var noncontrol = $('<div class="opac left-box" id="add-left-side" style="display:none"></div>');
 
     //Định vị
-    $('#inlineRadio3').click(function() {
+    $('#inlineRadio3').click(function () {
         $('#add-left-side').replaceWith(noncontrol);
-        layerObject.clearLayers();
-        findLocations.clearLayers();
 
         LoadAll();
         if ("geolocation" in navigator) { //check geolocation available 
             //try to get user current location using getCurrentPosition() method
-            navigator.geolocation.getCurrentPosition(function(position) {
+            navigator.geolocation.getCurrentPosition(function (position) {
                 console.log("Found your location <br />Lat : " + position.coords.latitude + " </br>Lang :" + position.coords.longitude);
                 myLocation.clearLayers();
                 L.marker([position.coords.latitude, position.coords.longitude], {

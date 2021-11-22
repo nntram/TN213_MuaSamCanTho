@@ -106,6 +106,12 @@ namespace TN213_MuaSamCanTho.Controllers
             return features.Serialize(prettyPrint: true);
         }
 
+        [ChildActionOnly]
+        public ActionResult ThongBaoPartial()
+        {
+            return PartialView();
+        }
+
 
     }
 }
