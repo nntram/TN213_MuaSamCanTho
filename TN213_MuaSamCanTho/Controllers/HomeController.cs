@@ -31,7 +31,7 @@ namespace TN213_MuaSamCanTho.Controllers
             foreach (var dl in dlm)
             {
                 var feature = new Feature(dl.The_Geom);
-                feature.Properties.Add("id", dl.Id);
+                feature.Properties.Add("maDiaDiem", dl.MaDiaDiem);
                 feature.Properties.Add("hinhAnh", dl.HinhAnh);
                 feature.Properties.Add("tenDiaDiem", dl.TenDiaDiem);
                 feature.Properties.Add("diaChi", dl.DiaChi);
@@ -61,7 +61,7 @@ namespace TN213_MuaSamCanTho.Controllers
             foreach (var dl in dlm)
             {
                 var feature = new Feature(dl.The_Geom);
-                feature.Properties.Add("id", dl.Id);
+                feature.Properties.Add("maDiaDiem", dl.MaDiaDiem);
                 feature.Properties.Add("hinhAnh", dl.HinhAnh);
                 feature.Properties.Add("tenDiaDiem", dl.TenDiaDiem);
                 feature.Properties.Add("diaChi", dl.DiaChi);
@@ -92,7 +92,7 @@ namespace TN213_MuaSamCanTho.Controllers
             foreach (var dl in dlm)
             {
                 var feature = new Feature(dl.The_Geom);
-                feature.Properties.Add("id", dl.Id);
+                feature.Properties.Add("maDiaDiem", dl.MaDiaDiem);
                 feature.Properties.Add("hinhAnh", dl.HinhAnh);
                 feature.Properties.Add("tenDiaDiem", dl.TenDiaDiem);
                 feature.Properties.Add("diaChi", dl.DiaChi);
@@ -112,6 +112,10 @@ namespace TN213_MuaSamCanTho.Controllers
             return PartialView();
         }
 
+        public ActionResult TimDuongDi()
+        {
+            return View();
+        }
 
     }
 }

@@ -49,8 +49,12 @@ Although you can use them, for a more unique website, replace these images with 
     <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"
             integrity="sha384-89yDmbSkL9reFc77m10ZbqLaUMf1sp7FAJs2oAD/rczNnY7I+17yN9KML6tpYpCk"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 
-   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
 </head>
 
 <body>
@@ -86,19 +90,8 @@ Although you can use them, for a more unique website, replace these images with 
 
         <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/toolbox.jpg');">
 
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Chọn loại địa điểm</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">Tìm địa điểm trong phạm vi bán kính</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                <label class="form-check-label" for="inlineRadio3"> Vị trí của bạn</label>
-            </div>
-            <i class="fa fa-search-plus"></i>  <a href="/Home/TimDuongDi"> Tìm đường đi</a>
+            <a href="/Home/BanDo">Trở lại bản đồ chính</a>
+
 
         </div>
 
@@ -122,7 +115,8 @@ Although you can use them, for a more unique website, replace these images with 
     <script src="/Content/js/jquery.easing.min.js"></script>
 
     <!-- Custom Javascript -->
-    <script src="/Content/js/custom.js"></script>
+   
+    <script src="/Content/js/TimDuongDi.js"></script>
 
 
 

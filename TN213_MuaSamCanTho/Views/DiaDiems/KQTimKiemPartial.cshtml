@@ -10,13 +10,13 @@
           tableStyle: "table table-bordered table-hover",
           headerStyle: "thead-light text-center",
           columns: grid.Columns(
-            grid.Column("Id", "Mã", style: "text-center"),
+            grid.Column("MaDiaDiem", "Mã", style: "text-center"),
             grid.Column("TenDiaDiem", "Tên địa điểm"),
             grid.Column("DiaChi", "Địa chỉ"),
             grid.Column("ThoiGianPhucVu", "Thời gian phục vụ"),
 
-            grid.Column(format: p => @Html.ActionLink("Sửa", "Edit", new { id = p.Id })),
-            grid.Column(format: p => @Html.ActionLink("Xóa", "Delete", new { id = p.Id }))
+            grid.Column(format: p => @Html.ActionLink("Sửa", "Edit", new { id = p.MaDiaDiem })),
+            grid.Column(format: p => @Html.ActionLink("Xóa", "Delete", new { id = p.MaDiaDiem }))
 
             )
        )

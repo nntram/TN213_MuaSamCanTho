@@ -12,12 +12,12 @@
     <h2>Xóa địa điểm</h2>
 
     <h3>Bạn thực sự muốn xóa địa điểm này?</h3>
-    <p>Mã địa điểm: @Model.Id</p>
+    <p>Mã địa điểm: @Model.MaDiaDiem</p>
     <div>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.MaLoai)
+                Loại địa điểm
             </dt>
 
             <dd>
@@ -25,7 +25,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.TenDiaDiem)
+                Tên địa điểm
             </dt>
 
             <dd>
@@ -33,7 +33,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.DiaChi)
+               Địa chỉ
             </dt>
 
             <dd>
@@ -41,7 +41,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.The_Geom)
+               Vị trí
             </dt>
 
             <dd>
@@ -51,7 +51,7 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.ThoiGianPhucVu)
+               Thời gian phục vụ
             </dt>
 
             <dd>
@@ -62,12 +62,12 @@
 
 
             <dt>
-                @Html.DisplayNameFor(model => model.HinhAnh)
+                Hình ảnh
             </dt>
 
             <dd>
                 <img src="~/Content/LocationImages/@Model.HinhAnh" class="img-edit" />
-                @Html.DisplayFor(model => model.HinhAnh)
+                <br />@Html.DisplayFor(model => model.HinhAnh)
             </dd>
 
            

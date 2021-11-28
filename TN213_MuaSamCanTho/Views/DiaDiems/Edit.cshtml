@@ -11,18 +11,19 @@
 <div class="ad-container" style="padding-bottom:30px">
 
     <h2>Chỉnh sửa địa điểm mua sắm</h2>
-    <p>Mã địa điểm: @Model.Id</p>
+    <p>Mã địa điểm: @Model.MaDiaDiem</p>
 
     @using (Html.BeginForm("Edit", "DiaDiems", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <input type="text" value="@Model.Id" name="Id" hidden />
+            <input type="text" value="@Model.MaDiaDiem" name="MaDiaDiem" hidden />
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.TenDiaDiem, htmlAttributes: new { @class = "control-label form-control-lg col-md-2" })
+                <label class="control-label form-control-lg col-md-2">Tên địa điểm</label>
+               
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.TenDiaDiem, new { htmlAttributes = new { @class = "form-control col-md-5", @required = "required" } })
                     @Html.ValidationMessageFor(model => model.TenDiaDiem, "", new { @class = "text-danger" })
@@ -38,7 +39,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2 form-control-lg" })
+                <label class="control-label form-control-lg col-md-2">Địa chỉ</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
                     @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
@@ -47,7 +48,7 @@
 
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.LabelFor(model => model.The_Geom, htmlAttributes: new { @class = "control-label col-md-2 form-control-lg" })
+                    <label class="control-label form-control-lg col-md-2">Vị trí</label>
                     <input class="form-control text-box single-line" id="The_Geom_WKT" name="The_Geom_WKT" readonly required type="text" value="POINT(@Model.The_Geom.XCoordinate @Model.The_Geom.YCoordinate)">
                 </div>
                 <div id="map" class="row">
@@ -56,7 +57,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.ThoiGianPhucVu, htmlAttributes: new { @class = "control-label col-md-2 form-control-lg" })
+                <label class="control-label form-control-lg col-md-2">Thời gian phục vụ</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.ThoiGianPhucVu, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
                     @Html.ValidationMessageFor(model => model.ThoiGianPhucVu, "", new { @class = "text-danger" })
@@ -68,7 +69,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2 form-control-lg" })
+                <label class="control-label form-control-lg col-md-2">Hình ảnh</label>
                 <div class="col-md-10">
                     <img src="~/Content/LocationImages/@Model.HinhAnh" class="img-edit" />
                     <p>@Model.HinhAnh</p>

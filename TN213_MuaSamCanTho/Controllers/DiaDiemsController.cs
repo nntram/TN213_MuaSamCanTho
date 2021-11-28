@@ -132,7 +132,7 @@ namespace TN213_MuaSamCanTho.Controllers
                     if (System.IO.File.Exists(path))
                     {
                         ViewBag.upload = "Hình đã tồn tại";
-                        DiaDiem diaDiem_old = db.DiaDiems.Find(diaDiem.Id);
+                        DiaDiem diaDiem_old = db.DiaDiems.Find(diaDiem.MaDiaDiem);
                         ViewBag.MaLoai = new SelectList(db.LoaiDiaDiems, "MaLoai", "TenLoai", diaDiem.MaLoai);
                         return View(diaDiem_old);
                     }
