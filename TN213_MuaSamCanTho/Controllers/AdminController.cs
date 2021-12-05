@@ -14,6 +14,10 @@ namespace TN213_MuaSamCanTho.Controllers
             return View();
         }
 
-        //Đăng nhập, đăng xuất
+        //Đăng nhập
+        public ActionResult DangNhap()
+        {
+            return View();
+        }
     }
 }

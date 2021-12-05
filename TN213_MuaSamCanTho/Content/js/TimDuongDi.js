@@ -38,16 +38,16 @@
        
     ], {
         geocoder: L.Control.Geocoder.nominatim(),
-        routeWhileDragging: true
+            routeWhileDragging: true,
+           
     }),
         control = L.Routing.control({
             routeWhileDragging: true,
+           
             plan: plan
         }).addTo(mapObject);
 
        
-
-
     mapObject.on('click', function (e) {
         var container = L.DomUtil.create('div'),
             startBtn = createButton('Bắt đầu ở vị trí này', container),

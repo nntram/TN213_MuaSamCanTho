@@ -131,11 +131,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Assistance.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DiaDiemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiDiaDiemsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -170,6 +170,7 @@
     <Content Include="Content\css\images\spritesheet-2x.png" />
     <Content Include="Content\css\images\spritesheet.png" />
     <Content Include="Content\css\images\spritesheet.svg" />
+    <Content Include="Content\css\login.css" />
     <Content Include="Content\css\toastr.css" />
     <Content Include="Content\css\leaflet.css" />
     <Content Include="Content\css\leaflet.draw.css" />
@@ -180,6 +181,7 @@
     <Content Include="Content\images\tpct.jpg" />
     <Content Include="Content\images\xybox.jpg" />
     <Content Include="Content\Admin\admin.js" />
+    <Content Include="Content\js\bootstrap.bundle.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\ie10-viewport-bug-workaround.js" />
@@ -192,6 +194,7 @@
     <Content Include="Content\js\leaflet.draw.js" />
     <Content Include="Content\js\leaflet.js" />
     <Content Include="Content\js\Leaflet.TileLayer.MBTiles.js" />
+    <Content Include="Content\js\login.js" />
     <Content Include="Content\js\tile_zoom_levels.png" />
     <Content Include="Content\js\TimDuongDi.js" />
     <Content Include="Content\js\toastr.js" />
@@ -282,7 +285,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\BanDo.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -298,6 +300,10 @@
     <Content Include="Views\LoaiDiaDiems\Edit.cshtml" />
     <Content Include="Views\LoaiDiaDiems\Index.cshtml" />
     <Content Include="Views\Home\TimDuongDi.cshtml" />
+    <Content Include="Views\Admin\DangNhap.cshtml" />
+    <Content Include="Views\User\DangNhap.cshtml" />
+    <Content Include="Views\Shared\_UserHeaderView.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,7 +313,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
