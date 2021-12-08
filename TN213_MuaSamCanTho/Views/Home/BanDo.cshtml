@@ -13,57 +13,56 @@
 <script src="/Content/js/leaflet.js"></script>
 <!--liên kết js của leaflet-->
 
-<link rel="stylesheet"
-      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css"
-      integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV"
-      crossorigin="anonymous" />
-<link rel="stylesheet"
-      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css"
-      integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+"
-      crossorigin="anonymous" />
-<script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"
-        integrity="sha384-89yDmbSkL9reFc77m10ZbqLaUMf1sp7FAJs2oAD/rczNnY7I+17yN9KML6tpYpCk"
-        crossorigin="anonymous"></script>
+
+<link href="~/Content/css/MarkerCluster.css" rel="stylesheet" />
+<link href="~/Content/css/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="~/Content/js/leaflet.markercluster.js"></script>
 
 
 
 
 
+<br>
+<div id="control-box">
+</div>
 
-    <br>
-    <div id="control-box">
+<div class="left-side">
+    <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/xybox.jpg'); background-size:auto">
+
+        <div>Tọa độ điểm đã chọn:</div>
+
+        <div>Latitude: <input type="text" class="form-control" id="textbox-x" readonly></div>
+
+        <div>Longtitude: <input type="text" class="form-control" id="textbox-y" readonly></div>
     </div>
 
-    <div class="left-side">
-        <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/xybox.jpg'); ">
+    <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/toolbox.jpg');">
 
-            <div>Tọa độ điểm đã chọn:</div>
-
-            <div>Latitude: <input type="text" class="form-control" id="textbox-x" readonly></div>
-
-            <div>Longtitude: <input type="text" class="form-control" id="textbox-y" readonly></div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Chọn loại địa điểm</label>
         </div>
-
-        <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/toolbox.jpg');">
-
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Chọn loại địa điểm</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">Tìm địa điểm trong phạm vi bán kính</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                <label class="form-check-label" for="inlineRadio3"> Vị trí của bạn</label>
-            </div>
-            <i class="fa fa-search-plus"></i>  <a href="/Home/TimDuongDi"> Tìm đường đi</a>
-
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Tìm địa điểm trong phạm vi bán kính</label>
         </div>
-
-        <div class="opac left-box" id="add-left-side" style="display:none"></div>
-
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+            <label class="form-check-label" for="inlineRadio3"> Vị trí của bạn</label>
+        </div>
+        
     </div>
 
-    <div id="map"></div>
+    <div class="opac left-box" id="add-left-side" style="display:none"></div>
+
+    <div class="opac fw-bold left-box">
+        <a href="/Home/TimDuongDi">  <i class="fa fa-arrow-up"></i> Tìm đường đi</a> <br />
+        <a href="/Home/DoDac"> <i class="fa fa-pencil"></i> Đo đạc</a>
+    </div>
+
+</div>
+
+<div id="map"></div>
+
+<!-- Custom Javascript -->
+<script src="/Content/js/custom.js"></script>

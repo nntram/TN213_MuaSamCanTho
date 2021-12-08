@@ -81,22 +81,23 @@ header {
     color: #333;
     padding: 14.5px 0px 15px 9px;
     border-radius: 5px 0px 0px 5px;
+    width: 30px;
 }
 
 
 
 /* Show/hide password Font Icon */
-#eye {
+#eye, #eye2 {
     background: #fff;
     color: #333;
-    margin: 5.9px 0 0 0;
+    margin: 6.5px 0 0 0;
     margin-left: -20px;
     padding: 15px 9px 19px 0px;
     border-radius: 0px 5px 5px 0px;
-    float: right;
+    
     position: relative;
-    right: 1%;
-    top: -.2%;
+    
+    top: -2.5px;
     z-index: 5;
     cursor: pointer;
 }
@@ -132,7 +133,7 @@ input:focus {
 .log-in {
     display: inline-block;
     color: #252537;
-    width: 280px;
+    width: 290px;
     height: 50px;
     padding: 0 20px;
     background: #fff;
@@ -181,4 +182,8 @@ button:hover, .button:hover {
     100% {
         transform: translateY(5px);
     }
+}
+
+.icon {
+    width: 30px;
 }

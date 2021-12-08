@@ -3,63 +3,55 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml"; ;
 }
 
-    <!-- jQuery -->
-    <script src="/Content/js/jquery-3.5.1.min.js"></script>
+<!-- jQuery -->
+<script src="/Content/js/jquery-3.5.1.min.js"></script>
 
-    <link rel="stylesheet" href="/Content/css/leaflet.css">
-    <!--liên kết css của leaflet-->
-    <script src="/Content/js/leaflet.js"></script>
-    <!--liên kết js của leaflet-->
-
-    <link rel="stylesheet"
-          href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css"
-          integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV"
-          crossorigin="anonymous" />
-    <link rel="stylesheet"
-          href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css"
-          integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+"
-          crossorigin="anonymous" />
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js"
-            integrity="sha384-89yDmbSkL9reFc77m10ZbqLaUMf1sp7FAJs2oAD/rczNnY7I+17yN9KML6tpYpCk"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
-    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<link rel="stylesheet" href="/Content/css/leaflet.css">
+<!--liên kết css của leaflet-->
+<script src="/Content/js/leaflet.js"></script>
+<!--liên kết js của leaflet-->
 
 
+<link href="~/Content/css/MarkerCluster.css" rel="stylesheet" />
+<link href="~/Content/css/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="~/Content/js/leaflet.markercluster.js"></script>
 
-    <div class="left-side">
-        <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/xybox.jpg'); ">
+<link href="~/Content/css/leaflet-routing-machine.css" rel="stylesheet" />
+<script src="~/Content/js/leaflet-routing-machine.js"></script><!--đã thêm tiếng Việt 'vi'-->
 
-            <div>Tọa độ điểm đã chọn:</div>
+<link href="~/Content/css/Control.Geocoder.css" rel="stylesheet" />
+<script src="~/Content/js/Control.Geocoder.js"></script>
 
-            <div>Latitude: <input type="text" class="form-control" id="textbox-x" readonly></div>
+<div class="left-side">
+    <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/xybox.jpg'); ">
 
-            <div>Longtitude: <input type="text" class="form-control" id="textbox-y" readonly></div>
-        </div>
+        <div>Tọa độ điểm đã chọn:</div>
 
-        <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/toolbox.jpg');">
+        <div>Latitude: <input type="text" class="form-control" id="textbox-x" readonly></div>
 
-            <a href="/Home/BanDo">Trở lại bản đồ chính</a>
+        <div>Longtitude: <input type="text" class="form-control" id="textbox-y" readonly></div>
+    </div>
 
+    <div class="opac fw-bold left-box" style=" background-image: url('/Content/images/toolbox.jpg');">
 
-        </div>
+        <a href="/Home/BanDo">Trở lại bản đồ chính</a>
 
-        <div class="opac left-box" id="add-left-side" style="display:none"></div>
 
     </div>
 
-    <div id="map"></div>
+    <div class="opac left-box" id="add-left-side" style="display:none"></div>
+
+</div>
+
+<div id="map"></div>
 
 
 
-   
 
-    <!-- Custom Javascript -->
-   
-    <script src="/Content/js/TimDuongDi.js"></script>
+
+<!-- Custom Javascript -->
+
+<script src="/Content/js/TimDuongDi.js"></script>
 
 
 

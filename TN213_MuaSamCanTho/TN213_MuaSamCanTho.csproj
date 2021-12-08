@@ -156,6 +156,7 @@
     <Content Include="Content\Admin\admin.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\Control.Geocoder.css" />
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\images\blueicon.png" />
@@ -170,7 +171,10 @@
     <Content Include="Content\css\images\spritesheet-2x.png" />
     <Content Include="Content\css\images\spritesheet.png" />
     <Content Include="Content\css\images\spritesheet.svg" />
+    <Content Include="Content\css\leaflet-routing-machine.css" />
     <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\MarkerCluster.css" />
+    <Content Include="Content\css\MarkerCluster.Default.css" />
     <Content Include="Content\css\toastr.css" />
     <Content Include="Content\css\leaflet.css" />
     <Content Include="Content\css\leaflet.draw.css" />
@@ -183,18 +187,22 @@
     <Content Include="Content\Admin\admin.js" />
     <Content Include="Content\js\bootstrap.bundle.js" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\Control.Geocoder.js" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\ie10-viewport-bug-workaround.js" />
     <Content Include="Content\js\jquery-3.5.1.min.js" />
     <Content Include="Content\js\jquery.easing.min.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\leaflet-mapbox-gl.js" />
+    <Content Include="Content\js\leaflet-routing-machine.js" />
     <Content Include="Content\js\leaflet-src.esm.js" />
     <Content Include="Content\js\leaflet-src.js" />
     <Content Include="Content\js\leaflet.draw.js" />
     <Content Include="Content\js\leaflet.js" />
+    <Content Include="Content\js\leaflet.markercluster.js" />
     <Content Include="Content\js\Leaflet.TileLayer.MBTiles.js" />
     <Content Include="Content\js\login.js" />
+    <Content Include="Content\js\signup.js" />
     <Content Include="Content\js\tile_zoom_levels.png" />
     <Content Include="Content\js\TimDuongDi.js" />
     <Content Include="Content\js\toastr.js" />
@@ -304,6 +312,7 @@
     <Content Include="Views\User\DangNhap.cshtml" />
     <Content Include="Views\Shared\_UserHeaderView.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\User\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

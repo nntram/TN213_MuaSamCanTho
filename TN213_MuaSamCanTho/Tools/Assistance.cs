@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
+
 using System.Web;
 
 namespace TN213_MuaSamCanTho.Tools
@@ -12,18 +11,18 @@ namespace TN213_MuaSamCanTho.Tools
     {
         public static string MaHoaMatKhau(string input)
         {
-            byte[] temp = ASCIIEncoding.ASCII.GetBytes(input);
-            byte[] hasData = new MD5CryptoServiceProvider().ComputeHash(temp);
-
-            string spass = "";
-
-            foreach (byte item in hasData)
+            String str = "";
+            Byte[] buffer = System.Text.Encoding.UTF8.GetBytes(input);
+            System.Security.Cryptography.MD5CryptoServiceProvider md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            buffer = md5.ComputeHash(buffer);
+            foreach (Byte b in buffer)
             {
-                spass += item;
+                str += b.ToString("X2");
             }
-
-            return spass;
+            return str;
         }
+
+        
     }
 
   

@@ -15,7 +15,7 @@ a {
 
     a:hover,
     a:focus {
-        color: #4caf50;
+        color: #FFB6C1;
     }
 
 p {
@@ -150,22 +150,6 @@ header .header-content .header-content-inner p {
         color: #222;
     }
 
-        .navbar-default .nav > li > a:hover,
-        .navbar-default .nav > li > a:focus:hover {
-            color: #4caf50;
-        }
-
-    .navbar-default .nav > li.active > a,
-    .navbar-default .nav > li.active > a:focus {
-        color: white !important;
-        background-color: transparent;
-        font-weight: 700;
-    }
-
-        .navbar-default .nav > li.active > a:hover,
-        .navbar-default .nav > li.active > a:focus:hover {
-            background-color: transparent;
-        }
 
 @media(min-width:768px) {
     .navbar-default {
@@ -182,10 +166,7 @@ header .header-content .header-content-inner p {
                 color: #fff;
             }
 
-        .navbar-default .nav > li > a:hover,
-        .navbar-default .nav > li > a:focus:hover {
-            color: #fff;
-        }
+       
 
         .navbar-default.affix {
             border-color: #fff;
@@ -208,10 +189,6 @@ header .header-content .header-content-inner p {
                 color: #222;
             }
 
-                .navbar-default.affix .nav > li > a:hover,
-                .navbar-default.affix .nav > li > a:focus:hover {
-                    color: #A1C9F1;
-                }
 }
 
 .btn-default {

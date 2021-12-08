@@ -11,7 +11,7 @@
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     ).addTo(mapObject);
 
-
+    //Hàm thêm button
     function createButton(label, container) {
         var btn = L.DomUtil.create('button', '', container);
         btn.setAttribute('type', 'button');
@@ -39,11 +39,11 @@
     ], {
         geocoder: L.Control.Geocoder.nominatim(),
             routeWhileDragging: true,
-           
+            language: 'vi',
     }),
         control = L.Routing.control({
             routeWhileDragging: true,
-           
+            language: 'vi',
             plan: plan
         }).addTo(mapObject);
 
