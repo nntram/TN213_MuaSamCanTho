@@ -187,3 +187,7 @@ button:hover, .button:hover {
 .icon {
     width: 30px;
 }
+
+.captcha{
+    margin-left:45px;
+}

@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> Password and Confirm Password Validation Using Jquery </title>
+    
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script>
+        function validatePassword() {
+            var validator = $("#loginForm").validate({
+                rules: {
+                    password: "required",
+                    confirmpassword: {
+                        equalTo: "#password"
+                    }
+                },
+                messages: {
+                    password: " Enter Password",
+                    confirmpassword: " Enter Confirm Password Same as Password"
+                }
+            });
+            if (validator.form()) {
+                alert('Sucess');
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <form method="post" id="loginForm" name="loginForm">
+        <table cellpadding="0" border="1">
+            <tr>
+                <td>Password</td>
+                <td><input tabindex="1" size="40" type="password" name="password" id="password" /></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td><input tabindex="1" size="40" type="password" name="confirmpassword" id="confirmpassword"  onchange="validatePassword();"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input tabindex="3" type="button" value="Submit" onClick="validatePassword();" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

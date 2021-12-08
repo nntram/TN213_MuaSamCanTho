@@ -94,6 +94,11 @@ namespace TN213_MuaSamCanTho.Controllers
             return View();
 
         }
+
+        public ActionResult test()
+        {
+            return View();
+        }
     }
 
 }
