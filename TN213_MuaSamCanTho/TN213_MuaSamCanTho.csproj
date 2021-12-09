@@ -189,6 +189,7 @@
     <Content Include="Content\images\tpct.jpg" />
     <Content Include="Content\images\xybox.jpg" />
     <Content Include="Content\Admin\admin.js" />
+    <Content Include="Content\js\account.js" />
     <Content Include="Content\js\bootstrap.bundle.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\Control.Geocoder.js" />
@@ -318,6 +319,7 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\User\DangKy.cshtml" />
     <Content Include="Views\User\test.cshtml" />
+    <Content Include="Views\User\SuaThongTin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

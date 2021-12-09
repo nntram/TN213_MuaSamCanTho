@@ -1,9 +1,10 @@
-﻿@using CaptchaMvc.HtmlHelpers
-@using CaptchaMvc
+﻿
+@model TN213_MuaSamCanTho.Models.TaiKhoan
+
 @{
     Layout = null;
-}
 
+}
 
 <!DOCTYPE html>
 
@@ -30,45 +31,47 @@
     @Html.Action("ThongBaoPartial", "Home")
     <div class="overlay">
         <!-- LOGN IN FORM by Omar Dsoky -->
-        <form action="@Url.Action("DangKy")" method="post" id="myform">
+        <form action="@Url.Action("SuaThongTin")" method="post" id="myform">
 
-            
+
             <!--   con = Container  for items in the form-->
             <div class="con">
                 <!--     Start  header Content  -->
                 <header class="head-form">
-                    <h2>Đăng ký</h2>
+                    <h2>Thông tin tài khoản</h2>
                     <!--     A welcome message or an explanation of the login form -->
-                    <p>Đăng ký tài khoản để có thể để lại bình luận</p>
+                    <p>Sửa đổi thông tin tài khoản</p>
                 </header>
                 <!--     End  header Content  -->
                 <br />
                 <div class="field-set">
+                    <input style="display:none" value="@Model.MaNguoiDung" name="id"/>
+                    <!--   user name -->
+                    <span class="input-item">
+                        <i class="fa fa-user icon"></i>
+                    </span>
+                    <!--   user name Input-->
+                    <input class="form-input" id="txt-input" type="text" placeholder="Tên đăng nhập" name="username" readonly value="@Model.TenDangNhap">
+
+                    <br />
 
                     <!--   name -->
                     <span class="input-item">
                         <i class="fa fa-keyboard-o icon"></i>
                     </span>
                     <!--   user name Input-->
-                    <input class="form-input" id="txt-input" type="text" placeholder="Họ và tên" name="name" required>
+                    <input class="form-input" id="txt-input" type="text" placeholder="Họ và tên" name="name" required value="@Model.TenNguoiDung">
 
                     <br />
 
-                    <!--   user name -->
-                    <span class="input-item">
-                        <i class="fa fa-user icon"></i>
-                    </span>
-                    <!--   user name Input-->
-                    <input class="form-input" id="txt-input" type="text" placeholder="Tên đăng nhập" name="username" required>
 
-                    <br />
 
                     <!--   Password -->
                     <span class="input-item">
                         <i class="fa fa-key icon"></i>
                     </span>
                     <!--   Password Input-->
-                    <input class="form-input" type="password" placeholder="Mật khẩu" id="pwd" name="password" required>
+                    <input class="form-input" type="password" placeholder="Mật khẩu mới" id="pwd" name="password" >
 
                     <!--      Show/hide password  -->
 
@@ -83,7 +86,7 @@
                         <i class="fa fa-pencil icon"></i>
                     </span>
                     <!--   Password Input-->
-                    <input class="form-input" type="password" placeholder="Xác nhận mật khẩu" id="pwd2" name="password2" requireds>
+                    <input class="form-input" type="password" placeholder="Xác nhận mật khẩu" id="pwd2" name="password2" >
 
                     <!--      Show/hide password  -->
 
@@ -95,14 +98,10 @@
                     <span id="checkPasswordMatch"></span>
 
                     <br />
-                    <div class="captcha">@Html.Captcha(5)</div>
 
-
-                    <span id="checkCaptchaNull" class="captcha"></span>
-                    <br />
                     <!--        buttons -->
                     <!--      button LogIn -->
-                    <button class="log-in" type="submit"> Đăng ký </button>
+                    <button class="log-in" type="submit"> Lưu thay đổi </button>
                 </div>
 
 
@@ -124,8 +123,5 @@
 </body>
 
 
-<script src="~/Content/js/signup.js"></script>
+<script src="~/Content/js/account.js"></script>
 </html>
-
-
-
