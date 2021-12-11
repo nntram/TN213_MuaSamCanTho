@@ -1,9 +1,7 @@
 ﻿using alatas.GeoJSON4EntityFramework;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity.Spatial;
 using System.Linq;
-using System.Web;
+using System.Net;
 using System.Web.Mvc;
 using TN213_MuaSamCanTho.Models;
 
@@ -115,6 +113,23 @@ namespace TN213_MuaSamCanTho.Controllers
         public ActionResult TimDuongDi()
         {
             return View();
+        }
+
+
+
+        public ActionResult XemChiTiet(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ModelDbContext db = new ModelDbContext();
+            DiaDiem diaDiem = db.DiaDiems.Find(id);
+            if (diaDiem == null)
+            {
+                return HttpNotFound();
+            }
+            return View(diaDiem);
         }
 
     }

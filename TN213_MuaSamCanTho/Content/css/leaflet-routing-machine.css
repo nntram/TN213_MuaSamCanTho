@@ -218,7 +218,7 @@
         height: 1px;
         z-index: 1;
         right: 1px;
-        top: 4px;
+        top: 5px;
         bottom: 0;
         margin: auto;
         padding: 2px;
@@ -258,11 +258,11 @@
 
 .leaflet-routing-container-hide .leaflet-routing-collapse-btn {
     position: relative;
-    left: 4px;
-    top: 4px;
+    left: 1px;
+    top: 1px;
     display: block;
-    width: 26px;
-    height: 23px;
+    width: 24px;
+    height: 24px;
     background-image: url('routing-icon.png');
 }
 

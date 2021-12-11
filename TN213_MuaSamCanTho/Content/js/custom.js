@@ -19,12 +19,6 @@ $(document).ready(function () {
 
     var findLocations = L.layerGroup().addTo(mapObject); //chứa các đối tượng tìm khi thỏa khoảng cách
 
-    //Định các style cho point, line và polygon
-    var pointStyle = L.icon({
-        iconUrl: "css/images/redicon.png",
-        shadowUrl: "css/images/marker-shadow.png",
-        iconAnchor: [13, 41] //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
-    });
     var lineStyle = {
         color: "blue",
         weight: 2
@@ -35,13 +29,13 @@ $(document).ready(function () {
         weight: 4
     };
 
-    var pointStyle1 = L.icon({ //Cho điểm khi clich
+    var pointStyle1 = L.icon({ 
         iconUrl: "/Content/css/images/market-icon-png-18.jpg",
         shadowUrl: "/Content/css/images/marker-shadow.png",
-        iconAnchor: [13, 30], //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
+        iconAnchor: [13, 10], //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
         iconSize: [25, 30]
     });
-    var pointStyle2 = L.icon({ //cho điểm khi tìm thỏa khoảng cách
+    var pointStyle2 = L.icon({ //cho điểm khi click
         iconUrl: "/Content/css/images/redicon.png",
         shadowUrl: "/Content/css/images/marker-shadow.png",
         iconAnchor: [13, 41]

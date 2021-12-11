@@ -342,8 +342,17 @@ img::-moz-selection {
 }
 
 #map {
-    height: 100%;
+    height: 97%;
     width: 75%;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: white;
+    margin: 20px;
+}
+
+#map2 {
+    height: 600px;
+    width: 800px;
     border-style: solid;
     border-radius: 10px;
     border-color: white;
@@ -362,7 +371,7 @@ img::-moz-selection {
 .left-side {
     width: 20%;
     float: left;
-    margin: 50px 15px;
+    margin: 20px 15px;
     color: white;
 }
 
@@ -371,7 +380,12 @@ img::-moz-selection {
     margin-bottom: 20px;
 }
 
-
+.container-detail {
+    background-color: white;
+    padding: 30px;
+    width: 80%;
+    margin: 30px auto;
+}
 
 .map-popup-content {
     width: 350px;

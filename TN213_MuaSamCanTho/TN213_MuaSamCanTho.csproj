@@ -179,6 +179,7 @@
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\MarkerCluster.css" />
     <Content Include="Content\css\MarkerCluster.Default.css" />
+    <Content Include="Content\css\routing-icon.png" />
     <Content Include="Content\css\toastr.css" />
     <Content Include="Content\css\leaflet.css" />
     <Content Include="Content\css\leaflet.draw.css" />
@@ -209,6 +210,7 @@
     <Content Include="Content\js\login.js" />
     <Content Include="Content\js\signup.js" />
     <Content Include="Content\js\tile_zoom_levels.png" />
+    <Content Include="Content\js\TimDuongDi2.js" />
     <Content Include="Content\js\TimDuongDi.js" />
     <Content Include="Content\js\toastr.js" />
     <Content Include="Content\LocationImages\Bach_Hoa_Xanh_An_Thoi.png" />
@@ -320,6 +322,7 @@
     <Content Include="Views\User\DangKy.cshtml" />
     <Content Include="Views\User\test.cshtml" />
     <Content Include="Views\User\SuaThongTin.cshtml" />
+    <Content Include="Views\Home\XemChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

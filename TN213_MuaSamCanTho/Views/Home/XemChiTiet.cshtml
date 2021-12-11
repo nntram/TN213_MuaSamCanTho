@@ -1,0 +1,43 @@
+﻿@using TN213_MuaSamCanTho.Models
+@model DiaDiem
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<link rel="stylesheet" href="/Content/css/leaflet.css">
+<!--liên kết css của leaflet-->
+<script src="/Content/js/leaflet.js"></script>
+<!--liên kết js của leaflet-->
+
+
+<link href="~/Content/css/MarkerCluster.css" rel="stylesheet" />
+<link href="~/Content/css/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="~/Content/js/leaflet.markercluster.js"></script>
+
+<link href="~/Content/css/leaflet-routing-machine.css" rel="stylesheet" />
+<script src="~/Content/js/leaflet-routing-machine.js"></script><!--đã thêm tiếng Việt 'vi'-->
+
+<link href="~/Content/css/Control.Geocoder.css" rel="stylesheet" />
+<script src="~/Content/js/Control.Geocoder.js"></script>
+
+<div class="container-detail">
+    <center>
+        <h1 id="location-name">@Model.TenDiaDiem</h1>
+
+        <img src="~/Content/LocationImages/@Model.HinhAnh" style="margin: 30px" />
+
+        <p>Địa chỉ: @Model.DiaChi <br />Giờ mở cửa: <b> @Model.ThoiGianPhucVu</b></p>
+
+        @*Truyền tọa độ để dùng DOM - jquery lấy tọa độ hiện lên bản đồ*@ 
+        <input id="lat" type="text" style="display:none" value="@Model.The_Geom.YCoordinate"/>
+        <input id="long" type="text" style="display:none" value="@Model.The_Geom.XCoordinate" />
+        <div id="map2"></div>
+    </center>
+
+
+
+</div>
+
+<script src="~/Content/js/TimDuongDi2.js"></script>

@@ -75,7 +75,7 @@
     var pointStyle1 = L.icon({ //Cho điểm khi clich
         iconUrl: "/Content/css/images/market-icon-png-18.jpg",
         shadowUrl: "/Content/css/images/marker-shadow.png",
-        iconAnchor: [13, 30], //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
+        iconAnchor: [13, 10], //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
         iconSize: [25, 30]
     });
    
