@@ -129,6 +129,8 @@ namespace TN213_MuaSamCanTho.Controllers
             {
                 return HttpNotFound();
             }
+            var lstBinhLuan = db.BinhLuans.Where(n => n.MaDiaDiem == id).OrderBy(n=>n.ThoiGianBinhLuan);
+            ViewBag.DsBinhLuan = lstBinhLuan;
             return View(diaDiem);
         }
 

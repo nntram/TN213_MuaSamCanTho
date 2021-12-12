@@ -162,6 +162,7 @@
     <Content Include="Content\css\Control.Geocoder.css" />
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\images\avatar.jpg" />
     <Content Include="Content\css\images\blueicon.png" />
     <Content Include="Content\css\images\layers-2x.png" />
     <Content Include="Content\css\images\layers.png" />
@@ -187,7 +188,6 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\can-tho-bridge-2.jpg" />
     <Content Include="Content\images\toolbox.jpg" />
-    <Content Include="Content\images\tpct.jpg" />
     <Content Include="Content\images\xybox.jpg" />
     <Content Include="Content\Admin\admin.js" />
     <Content Include="Content\js\account.js" />
@@ -210,7 +210,7 @@
     <Content Include="Content\js\login.js" />
     <Content Include="Content\js\signup.js" />
     <Content Include="Content\js\tile_zoom_levels.png" />
-    <Content Include="Content\js\TimDuongDi2.js" />
+    <Content Include="Content\js\XemChiTiet.js" />
     <Content Include="Content\js\TimDuongDi.js" />
     <Content Include="Content\js\toastr.js" />
     <Content Include="Content\LocationImages\Bach_Hoa_Xanh_An_Thoi.png" />

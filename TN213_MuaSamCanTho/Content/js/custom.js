@@ -73,7 +73,7 @@ $(document).ready(function () {
             onEachFeature: function (feature, layer) { //Mỗi đối tượng thêm popup vào
                 if (feature.properties) { //Có properties và có name
                     layer.bindPopup("<div class='left'><img src='/Content/LocationImages/" + feature.properties.hinhAnh + "'></div>" +
-                        "<div class='right'><u><b>" + feature.properties.tenDiaDiem + "</b></u>"
+                        "<div class='right'><a class='fw-bold' href='/Home/XemChiTiet?id=" + feature.properties.maDiaDiem+"'>" + feature.properties.tenDiaDiem + "</a>"
                         + "<br><b>Loại địa điểm: </b>" + feature.properties.tenLoaiDiaDiem
                         + "<br><b>Địa chỉ: </b>" + feature.properties.diaChi
                         + "<br><b>Thời gian phục vụ: </b>" + feature.properties.thoiGianPhucVu + "</div>"
@@ -202,7 +202,7 @@ $(document).ready(function () {
                                 className: "map-popup-content",
                             }
                             layer.bindPopup("<div class='left'><img src='/Content/LocationImages/" + feature.properties.hinhAnh + "'></div>" +
-                                "<div class='right'><u><b>" + feature.properties.tenDiaDiem + "</b></u>"
+                                "<div class='right'><a class='fw-bold' href='/Home/XemChiTiet?id=" + feature.properties.maDiaDiem + "'>" + feature.properties.tenDiaDiem + "</a>"
                                 + "<br><b>Loại địa điểm: </b>" + feature.properties.tenLoaiDiaDiem
                                 + "<br><b>Địa chỉ: </b>" + feature.properties.diaChi
                                 + "<br><b>Thời gian phục vụ: </b>" + feature.properties.thoiGianPhucVu

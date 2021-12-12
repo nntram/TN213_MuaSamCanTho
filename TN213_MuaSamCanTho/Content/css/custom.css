@@ -3,7 +3,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-    background-image: url("../images/tpct.jpg");
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 a {
@@ -102,8 +102,8 @@ header .header-content .header-content-inner p {
 }
 
 .contact {
-    padding: 10px 0;
-    background-color: rgba(8, 10, 98, 0.72);
+    padding: 5px 0;
+    background-color: rgba(195, 155, 211, 0.72);
     color: #fff;
 }
 
@@ -351,8 +351,8 @@ img::-moz-selection {
 }
 
 #map2 {
-    height: 600px;
-    width: 800px;
+    height: 500px;
+    width: 700px;
     border-style: solid;
     border-radius: 10px;
     border-color: white;
@@ -413,3 +413,33 @@ img::-moz-selection {
             clear: both;
         }
 
+
+
+.comment-wrapper .panel-body {
+    max-height: 650px;
+    overflow: auto;
+}
+
+.comment-wrapper .media-list .media img {
+    width: 64px;
+    height: 64px;
+    border: 2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom: 1px dashed #efefef;
+    margin-bottom: 25px;
+}
+
+ul {
+    list-style: none;
+}
+
+.avatar{
+    margin-right:15px;
+}
+
+.login-link{
+    color: slateblue;
+    text-decoration:none;
+}

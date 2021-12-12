@@ -19,6 +19,8 @@ namespace TN213_MuaSamCanTho.Models
         [StringLength(500)]
         public string NoiDungBinhLuan { get; set; }
 
+        public DateTime? ThoiGianBinhLuan { get; set; }
+
         public virtual DiaDiem DiaDiem { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
