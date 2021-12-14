@@ -14,11 +14,16 @@
 <!--liên kết js của leaflet-->
 
 <script src="~/Content/js/XemChiTiet.js"></script>
+
+<link href="~/Content/css/toastr.css" rel="stylesheet" />
+<script src="~/Content/js/toastr.js"></script>
+
+@Html.Partial("ThongBaoPartial")
 <div class="container-detail">
     <center>
         <h1 id="location-name">@Model.TenDiaDiem</h1>
 
-        <img src="~/Content/LocationImages/@Model.HinhAnh" style="margin: 30px"/>
+        <img src="~/Content/LocationImages/@Model.HinhAnh" style="margin: 30px" />
 
         <p>Địa chỉ: @Model.DiaChi <br />Giờ mở cửa: <b> @Model.ThoiGianPhucVu</b></p>
 
@@ -37,7 +42,7 @@
                 <div class="panel-heading">
                     Nhận xét
                 </div>
-               
+
                 <div class="panel-body">
                     @{ if (tk != null)
                         {
@@ -64,7 +69,7 @@
 
 
                     <ul class="media-list" id="KetQua">
-                        
+
                         @{ if (lstBinhLuan.Count() > 0)
                             {
                                 foreach (var item in lstBinhLuan)
@@ -83,7 +88,7 @@
                                             <div class="edit-control">
                                                 @{ if (tk != null && tk.MaNguoiDung == item.MaNguoiDung)
                                                     {
-                                                        <a class="link-edit-comment del" data="@maBinhLuan">Xóa</a>
+                                                        <a class="link-edit-comment del" data="@maBinhLuan" data-bs-toggle="modal" data-bs-target="#exampleModal">Xóa</a>
                                                         <a class="link-edit-comment edit" data="@maBinhLuan">Sửa</a>
                                                     }
                                                 }
@@ -93,16 +98,16 @@
                                                 @item.NoiDungBinhLuan
 
                                             </p>
-                                            @using (Ajax.BeginForm("SuaBinhLuan", "User", new AjaxOptions { @UpdateTargetId = "KetQua-"+ maBinhLuan, @InsertionMode = InsertionMode.Replace }))
+                                            @using (Ajax.BeginForm("SuaBinhLuan", "User", new AjaxOptions { @UpdateTargetId = "KetQua-" + maBinhLuan, @InsertionMode = InsertionMode.Replace }))
                                             {
-                                        <div class="edit-comment" id="edit-@maBinhLuan">
-                                            <input type="text" value="@maBinhLuan" style="display:none" name="MaBinhLuan" />
-                                            <textarea class="form-control" rows="3" required id="edit-text-@maBinhLuan" name="NoiDungBinhLuan"></textarea>
-                                            <br>
-                                            <input type="button" class="btn btn-grey pull-right btn-cancel" value="Hủy" data="@maBinhLuan">
-                                            <input type="submit" class="btn btn-info pull-right btn-submit" value="Lưu thay đổi" data="@maBinhLuan">
-                                            <div class="clearfix"></div>
-                                        </div>
+                                                <div class="edit-comment" id="edit-@maBinhLuan">
+                                                    <input type="text" value="@maBinhLuan" style="display:none" name="MaBinhLuan" />
+                                                    <textarea class="form-control" rows="3" required id="edit-text-@maBinhLuan" name="NoiDungBinhLuan"></textarea>
+                                                    <br>
+                                                    <input type="button" class="btn btn-grey pull-right btn-cancel" value="Hủy" data="@maBinhLuan">
+                                                    <input type="submit" class="btn btn-info pull-right btn-submit" value="Lưu thay đổi" data="@maBinhLuan">
+                                                    <div class="clearfix"></div>
+                                                </div>
                                             }
                                         </div>
                                     </li>
@@ -112,11 +117,35 @@
                         }
                     </ul>
                 </div>
-                    </div>
-                </div>
-
-
-
             </div>
         </div>
+
+
+
+    </div>
+</div>
+
+
+
+<!-- Xác nhận xóa -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bạn có thực sự muốn xóa nhận xét này?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <a class="btn btn-primary" href="" id="XacNhanXoa">Xóa</a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
 

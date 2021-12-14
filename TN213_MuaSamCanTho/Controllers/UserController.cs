@@ -75,7 +75,7 @@ namespace TN213_MuaSamCanTho.Controllers
                 {
                     var username = f["username"];
                     var kttk = db.TaiKhoans.FirstOrDefault(n => n.TenDangNhap == username);
-                    
+
                     if (kttk == null)
                     {
                         TaiKhoan tk = new TaiKhoan();
@@ -90,9 +90,9 @@ namespace TN213_MuaSamCanTho.Controllers
                         TempData["success"] = "Đăng ký thành công! Vui lòng đăng nhập để kiểm tra.";
                         return RedirectToAction("DangNhap");
                     }
-                    else 
+                    else
                         TempData["error"] = "Tên tài khoản đã tồn tại! Vui lòng chọn tên tài khoản khác.";
-                   
+
                 }
                 else
                     TempData["error"] = "Đã có lỗi xảy ra.";
@@ -119,28 +119,28 @@ namespace TN213_MuaSamCanTho.Controllers
         [HttpPost]
         public ActionResult SuaThongTin(FormCollection f)
         {
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
+            {
+                int id = int.Parse(f["id"]);
+                var tk = db.TaiKhoans.FirstOrDefault(n => n.MaNguoiDung == id);
+
+                if (tk != null)
                 {
-                    int id = int.Parse(f["id"]);
-                    var tk = db.TaiKhoans.FirstOrDefault(n => n.MaNguoiDung == id);
+                    tk.TenNguoiDung = f["name"];
+                    if (f["password"] != "")
+                        tk.MatKhau = Tools.Assistance.MaHoaMatKhau(f["password"]);
 
-                    if (tk != null)
-                    {
-                        tk.TenNguoiDung = f["name"];
-                        if(f["password"] != "")
-                            tk.MatKhau = Tools.Assistance.MaHoaMatKhau(f["password"]);
-
-                        db.SaveChanges();//thêm vào csdl
-                        TempData["success"] = "Lưu thay đổi thành công!";
-                        Session["TaiKhoan"] = tk;
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                        TempData["error"] = "Tài khoản không tồn tại.";
-
+                    db.SaveChanges();//thêm vào csdl
+                    TempData["success"] = "Lưu thay đổi thành công!";
+                    Session["TaiKhoan"] = tk;
+                    return RedirectToAction("Index", "Home");
                 }
                 else
-                    TempData["error"] = "Đã có lỗi xảy ra.";
+                    TempData["error"] = "Tài khoản không tồn tại.";
+
+            }
+            else
+                TempData["error"] = "Đã có lỗi xảy ra.";
 
             return View();
         }
@@ -173,6 +173,53 @@ namespace TN213_MuaSamCanTho.Controllers
             db.SaveChanges();
 
             return PartialView(cmt);
+        }
+
+        public ActionResult XoaBinhLuan(int id)
+        {
+            try
+            {
+                BinhLuan cmt = db.BinhLuans.Find(id);
+                if (Session["TaiKhoan"] != null && cmt!=null)
+                {
+                    TaiKhoan tk = Session["TaiKhoan"] as TaiKhoan;
+                   
+                    int? maDiaDiem = cmt.MaDiaDiem, maNguoiDung = cmt.MaNguoiDung;
+                    if (tk.MaNguoiDung == maNguoiDung)
+                    {
+                        db.BinhLuans.Remove(cmt);
+                        db.SaveChanges();
+                        TempData["success"] = "Đã xóa!";
+                        return RedirectToAction("XemChiTiet", "Home", new { id = maDiaDiem });
+                    }
+                    else
+                    {
+                        TempData["error"] = "Bạn không được phép thực hiện hành động này.";
+                    }
+                }
+                else if(Session["TaiKhoan"] == null)
+                {
+                    TempData["error"] = "Cần đăng nhập để thực hiện hành động này.";
+                }
+                else
+                {
+                    TempData["error"] = "Không thể thực hiện hành động!";
+                }
+            }
+            catch (Exception)
+            {
+                TempData["error"] = "Đã có lỗi xảy ra.";
+            }
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
+
+
+        public ActionResult test()
+        {
+            return View();
         }
 
     }

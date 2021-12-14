@@ -79,5 +79,22 @@
     $(".btn-submit").click(function () {
         $(".edit-control").css("display", "block");
     })
+
+    //Xác nhận xóa
+    var exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var maBinhLuan = button.getAttribute('data')
+        console.log(button.getAttribute('data'))
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        $("#XacNhanXoa").prop('href', '/User/XoaBinhLuan/' + maBinhLuan)
+
+        console.log($("#XacNhanXoa"))
+    })
   
 });
