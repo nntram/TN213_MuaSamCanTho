@@ -323,6 +323,7 @@
     <Content Include="Views\User\test.cshtml" />
     <Content Include="Views\User\SuaThongTin.cshtml" />
     <Content Include="Views\Home\XemChiTiet.cshtml" />
+    <Content Include="Views\User\DangBinhLuan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

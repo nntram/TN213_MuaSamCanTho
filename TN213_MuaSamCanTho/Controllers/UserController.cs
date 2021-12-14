@@ -145,8 +145,25 @@ namespace TN213_MuaSamCanTho.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult DangBinhLuan(FormCollection f)
+        {
+            ModelDbContext db = new ModelDbContext();
+            TaiKhoan tk = Session["TaiKhoan"] as TaiKhoan;
 
-      
+            BinhLuan cmt = new BinhLuan();
+            cmt.MaNguoiDung = tk.MaNguoiDung;
+            cmt.MaDiaDiem = int.Parse(f["MaDiaDiem"]);
+            cmt.NoiDungBinhLuan = f["NoiDungBinhLuan"];
+            cmt.ThoiGianBinhLuan = DateTime.Now;
+
+            db.BinhLuans.Add(cmt);
+            db.SaveChanges();
+
+            ViewBag.TaiKhoan = Session["TaiKhoan"] as TaiKhoan;
+            return PartialView(cmt);
+        }
+
     }
 
 }

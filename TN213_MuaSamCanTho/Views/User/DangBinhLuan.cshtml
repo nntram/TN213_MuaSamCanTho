@@ -1,0 +1,19 @@
+﻿@using TN213_MuaSamCanTho.Models
+@model BinhLuan
+@{ 
+    var tk = (TaiKhoan)ViewBag.TaiKhoan;
+}
+<li class="media">
+    <a href="#" class="pull-left">
+        <img src="~/Content/css/images/avatar.jpg" class="avatar">
+    </a>
+    <div class="media-body">
+        <span class="text-muted pull-right">
+            <small class="text-muted">@Model.ThoiGianBinhLuan</small>
+        </span>
+        <strong class="text-success">@tk.TenNguoiDung</strong>
+        <p>
+            @Model.NoiDungBinhLuan
+        </p>
+    </div>
+</li>

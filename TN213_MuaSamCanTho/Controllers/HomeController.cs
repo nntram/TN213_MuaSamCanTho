@@ -115,9 +115,7 @@ namespace TN213_MuaSamCanTho.Controllers
             return View();
         }
 
-
-
-        public ActionResult XemChiTiet(int? id)
+     public ActionResult XemChiTiet(int? id)
         {
             if (id == null)
             {
@@ -133,6 +131,8 @@ namespace TN213_MuaSamCanTho.Controllers
             ViewBag.DsBinhLuan = lstBinhLuan;
             return View(diaDiem);
         }
+
+       
 
     }
 }

@@ -21,8 +21,6 @@
         iconAnchor: [13, 10] //Giữa đáy ảnh 25, 41 (RClick trên ảnh / Properties)
     });
    
-   
-
 
     //Click trên bản đồ
     var myLocation = L.layerGroup().addTo(mapObject); //chứa điểm khi click
@@ -30,6 +28,30 @@
         icon: pointStyle
     }).addTo(myLocation).bindPopup("<h4>" + $("#location-name").html() + "</h4>");
 
+
+    $("#NoiDungHienThi").keyup(function () {
+        var noiDung = $("#NoiDungHienThi").val();
+       
+        if (noiDung.trim() != "") {
+            $("#submit-form").prop('disabled', false);
+        }
+        else {
+            $("#submit-form").prop('disabled', true);
+        }
+       
+    })
+
+
+
+    $("#submit-form").click(function () {
+        $("#NoiDung").val($("#NoiDungHienThi").val());
+        $("#NoiDungHienThi").val("");
+        setTimeout(function () {
+            $("#submit-form").prop('disabled', true);
+        });
+        
+
+    })
     
   
 });
