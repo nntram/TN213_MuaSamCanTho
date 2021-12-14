@@ -29,6 +29,9 @@
     }).addTo(myLocation).bindPopup("<h4>" + $("#location-name").html() + "</h4>");
 
 
+    //Đăng bình luận
+
+    //Disable nút đăng khi textbox rỗng
     $("#NoiDungHienThi").keyup(function () {
         var noiDung = $("#NoiDungHienThi").val();
        
@@ -42,16 +45,39 @@
     })
 
 
-
+    //Xóa textbox sau khi submit
     $("#submit-form").click(function () {
         $("#NoiDung").val($("#NoiDungHienThi").val());
         $("#NoiDungHienThi").val("");
         setTimeout(function () {
             $("#submit-form").prop('disabled', true);
         });
-        
+
 
     })
-    
+
+
+    //Hiện textbox để sửa
+    $(".edit").click(function () {
+        var maBinhLuan = this.getAttribute('data');
+        $("#edit-" + maBinhLuan).css("display", "block");
+        //Focus cuối bình luận
+        var input = $("#edit-text-" + maBinhLuan);
+        input.val($("#noidung-" + maBinhLuan).html().trim())
+        input.focus();
+        $(".edit-control").css("display", "none");
+    })
+
+
+    //Ẩn textbox để sửa
+    $(".btn-cancel").click(function () {
+        var maBinhLuan = this.getAttribute('data');
+        $("#edit-" + maBinhLuan).css("display", "none");
+        $(".edit-control").css("display", "block");
+    })
+
+    $(".btn-submit").click(function () {
+        $(".edit-control").css("display", "block");
+    })
   
 });

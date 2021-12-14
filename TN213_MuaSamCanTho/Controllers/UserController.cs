@@ -148,7 +148,6 @@ namespace TN213_MuaSamCanTho.Controllers
         [HttpPost]
         public ActionResult DangBinhLuan(FormCollection f)
         {
-            ModelDbContext db = new ModelDbContext();
             TaiKhoan tk = Session["TaiKhoan"] as TaiKhoan;
 
             BinhLuan cmt = new BinhLuan();
@@ -160,7 +159,19 @@ namespace TN213_MuaSamCanTho.Controllers
             db.BinhLuans.Add(cmt);
             db.SaveChanges();
 
-            ViewBag.TaiKhoan = Session["TaiKhoan"] as TaiKhoan;
+            return PartialView(cmt);
+        }
+
+        [HttpPost]
+        public ActionResult SuaBinhLuan(FormCollection f)
+        {
+            TaiKhoan tk = Session["TaiKhoan"] as TaiKhoan;
+            int maBinhLuan = int.Parse(f["MaBinhLuan"]);
+            BinhLuan cmt = db.BinhLuans.Find(maBinhLuan);
+
+            cmt.NoiDungBinhLuan = f["NoiDungBinhLuan"];
+            db.SaveChanges();
+
             return PartialView(cmt);
         }
 

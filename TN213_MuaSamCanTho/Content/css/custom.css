@@ -443,3 +443,21 @@ ul {
     color: slateblue;
     text-decoration:none;
 }
+
+.link-edit-comment{
+    color: royalblue;
+    float:right;
+    margin-right:20px;
+    cursor: pointer;
+}
+
+.edit-comment {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: none;
+}
+
+.btn-cancel {
+    margin-left: 20px;
+    margin-right: 20px;
+}

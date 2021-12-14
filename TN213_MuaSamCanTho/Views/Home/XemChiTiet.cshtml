@@ -4,6 +4,7 @@
     ViewBag.Title = "XemChiTiet";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
     IEnumerable<BinhLuan> lstBinhLuan = (IEnumerable<BinhLuan>)ViewBag.DsBinhLuan;
+    TaiKhoan tk = Session["TaiKhoan"] as TaiKhoan;
 }
 
 
@@ -17,7 +18,7 @@
     <center>
         <h1 id="location-name">@Model.TenDiaDiem</h1>
 
-        <img src="~/Content/LocationImages/@Model.HinhAnh" style="margin: 30px" />
+        <img src="~/Content/LocationImages/@Model.HinhAnh" style="margin: 30px"/>
 
         <p>Địa chỉ: @Model.DiaChi <br />Giờ mở cửa: <b> @Model.ThoiGianPhucVu</b></p>
 
@@ -38,10 +39,10 @@
                 </div>
                
                 <div class="panel-body">
-                    @{ if (Session["TaiKhoan"] != null)
+                    @{ if (tk != null)
                         {
 
-                            using (Ajax.BeginForm("DangBinhLuan", "User", new AjaxOptions { @UpdateTargetId = "KetQua", @InsertionMode = InsertionMode.InsertAfter }))
+                            using (Ajax.BeginForm("DangBinhLuan", "User", new AjaxOptions { @UpdateTargetId = "KetQua", @InsertionMode = InsertionMode.InsertBefore }))
                             {
                                 <input type="text" value="@Model.MaDiaDiem" style="display:none" name="MaDiaDiem" />
                                 <input type="text" style="display:none" name="NoiDungBinhLuan" id="NoiDung" />
@@ -63,12 +64,13 @@
 
 
                     <ul class="media-list" id="KetQua">
-                        <li></li>
+                        
                         @{ if (lstBinhLuan.Count() > 0)
                             {
                                 foreach (var item in lstBinhLuan)
                                 {
-                                    <li class="media">
+                                    var maBinhLuan = item.MaBinhLuan;
+                                    <li class="media" id="KetQua-@maBinhLuan">
                                         <a href="#" class="pull-left">
                                             <img src="~/Content/css/images/avatar.jpg" class="avatar">
                                         </a>
@@ -77,9 +79,31 @@
                                                 <small class="text-muted">@item.ThoiGianBinhLuan</small>
                                             </span>
                                             <strong class="text-success">@item.TaiKhoan.TenNguoiDung</strong>
-                                            <p>
+
+                                            <div class="edit-control">
+                                                @{ if (tk != null && tk.MaNguoiDung == item.MaNguoiDung)
+                                                    {
+                                                        <a class="link-edit-comment del" data="@maBinhLuan">Xóa</a>
+                                                        <a class="link-edit-comment edit" data="@maBinhLuan">Sửa</a>
+                                                    }
+                                                }
+                                            </div>
+
+                                            <p id="noidung-@maBinhLuan">
                                                 @item.NoiDungBinhLuan
+
                                             </p>
+                                            @using (Ajax.BeginForm("SuaBinhLuan", "User", new AjaxOptions { @UpdateTargetId = "KetQua-"+ maBinhLuan, @InsertionMode = InsertionMode.Replace }))
+                                            {
+                                        <div class="edit-comment" id="edit-@maBinhLuan">
+                                            <input type="text" value="@maBinhLuan" style="display:none" name="MaBinhLuan" />
+                                            <textarea class="form-control" rows="3" required id="edit-text-@maBinhLuan" name="NoiDungBinhLuan"></textarea>
+                                            <br>
+                                            <input type="button" class="btn btn-grey pull-right btn-cancel" value="Hủy" data="@maBinhLuan">
+                                            <input type="submit" class="btn btn-info pull-right btn-submit" value="Lưu thay đổi" data="@maBinhLuan">
+                                            <div class="clearfix"></div>
+                                        </div>
+                                            }
                                         </div>
                                     </li>
                                 }
