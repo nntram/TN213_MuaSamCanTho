@@ -10,6 +10,7 @@ using TN213_MuaSamCanTho.Models;
 
 namespace TN213_MuaSamCanTho.Controllers
 {
+    [Authorize]
     public class LoaiDiaDiemsController : Controller
     {
         private ModelDbContext db = new ModelDbContext();

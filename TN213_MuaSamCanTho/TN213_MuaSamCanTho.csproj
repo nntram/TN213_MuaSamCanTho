@@ -333,6 +333,7 @@
     <Content Include="Views\TaiKhoans\Delete.cshtml" />
     <Content Include="Views\TaiKhoans\Edit.cshtml" />
     <Content Include="Views\TaiKhoans\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminHeaderView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
