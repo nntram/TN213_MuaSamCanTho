@@ -135,9 +135,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BinhLuansController.cs" />
     <Compile Include="Controllers\DiaDiemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiDiaDiemsController.cs" />
+    <Compile Include="Controllers\TaiKhoansController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -325,6 +327,12 @@
     <Content Include="Views\Home\XemChiTiet.cshtml" />
     <Content Include="Views\User\DangBinhLuan.cshtml" />
     <Content Include="Views\User\SuaBinhLuan.cshtml" />
+    <Content Include="Views\BinhLuans\Delete.cshtml" />
+    <Content Include="Views\BinhLuans\Index.cshtml" />
+    <Content Include="Views\TaiKhoans\Create.cshtml" />
+    <Content Include="Views\TaiKhoans\Delete.cshtml" />
+    <Content Include="Views\TaiKhoans\Edit.cshtml" />
+    <Content Include="Views\TaiKhoans\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

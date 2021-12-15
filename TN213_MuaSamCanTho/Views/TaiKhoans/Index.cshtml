@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TN213_MuaSamCanTho.Models.TaiKhoan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="ad-container">
+    <h2>Danh sách tài khoản</h2>
+
+    <p>
+        <a class="btn btn-info" href="@Url.Action("Create")"> <i class="fa fa-plus"></i>  Tạo mới</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Tên đăng nhập
+            </th>
+            
+            <th>
+                Tên người dùng
+            </th>
+            <th>
+               Quyền quản trị
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDangNhap)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNguoiDung)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuyenAdmin)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaNguoiDung }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaNguoiDung })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

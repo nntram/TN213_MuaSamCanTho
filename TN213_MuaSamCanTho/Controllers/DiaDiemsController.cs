@@ -180,10 +180,22 @@ namespace TN213_MuaSamCanTho.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            //Xóa bình luận về địa điểm này
+            var binhLuan = db.BinhLuans.Where(b => b.MaDiaDiem == id);
+            if(binhLuan != null)
+            {
+                foreach(var i in binhLuan)
+                {
+                    db.BinhLuans.Remove(i);
+                }
+                
+            }
+
             DiaDiem diaDiem = db.DiaDiems.Find(id);
-            RemoveFileFromServer("~/Content/LocationImages/" + diaDiem.HinhAnh);//Xóa ảnh khỏi thư mục ảnh
+            var hinhAnh = diaDiem.HinhAnh;
             db.DiaDiems.Remove(diaDiem);
             db.SaveChanges();
+            RemoveFileFromServer("~/Content/LocationImages/" + hinhAnh);//Xóa ảnh khỏi thư mục ảnh
             TempData["success"] = "Đã xóa!";
             return RedirectToAction("Index");
         }

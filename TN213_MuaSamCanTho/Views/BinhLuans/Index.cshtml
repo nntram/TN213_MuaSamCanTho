@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TN213_MuaSamCanTho.Models.BinhLuan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="ad-container">
+    <h2>Quản lý bình luận</h2>
+
+    
+    <table class="table">
+        <tr>
+            <th>
+               Tên địa điểm
+            </th>
+            <th>
+               Tài khoản
+            </th>
+            <th>
+                Nội dung bình luận
+            </th>
+            <th>
+                Thời gian bình luận
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaDiem.TenDiaDiem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaiKhoan.TenDangNhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoiDungBinhLuan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThoiGianBinhLuan)
+                </td>
+                <td>
+       
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaBinhLuan })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

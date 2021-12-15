@@ -1,0 +1,60 @@
+﻿@model TN213_MuaSamCanTho.Models.BinhLuan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="ad-container">
+    <h2>Xác nhận xóa</h2>
+
+    <h3>Bạn muốn xóa bình luận này?</h3>
+    <div>
+     
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên bình luận
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaDiem.TenDiaDiem)
+            </dd>
+
+            <dt>
+               Tài khoản
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TaiKhoan.TenDangNhap)
+            </dd>
+
+            <dt>
+                Nội dung bình luận
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoiDungBinhLuan)
+            </dd>
+
+            <dt>
+              Thời gian bình luận
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGianBinhLuan)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở về", "Index")
+            </div>
+        }
+    </div>
+</div>

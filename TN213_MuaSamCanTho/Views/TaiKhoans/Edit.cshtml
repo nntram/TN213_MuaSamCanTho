@@ -1,0 +1,89 @@
+﻿@model TN213_MuaSamCanTho.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="ad-container">
+    <h2>Chỉnh sửa tài khoản</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MaNguoiDung)
+
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Tên người dùng</label>
+                <div class="col-md-10">
+                    <input class="form-control col-md-5 text-box single-line" readonly value="@Model.TenNguoiDung">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Tên đăng nhập</label>
+                <div class="col-md-10">
+                    <input class="form-control col-md-5 text-box single-line" readonly value="@Model.TenDangNhap">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Cấp mật khẩu mới</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line col-md-5" maxlength="50" id="MatKhau" name="MatKhau" type="text">
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="control-label col-md-5">Tài khoản có quyền quản trị</label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @{ if (Model.QuyenAdmin == true)
+                            {
+                                <select class="list-box tri-state form-control col-md-5" id="QuyenAdmin" name="QuyenAdmin">
+                                    <option value="true" selected>True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            }
+                            else
+                            {
+                                <select class="list-box tri-state form-control col-md-5" id="QuyenAdmin" name="QuyenAdmin">
+                                    <option value="true">True</option>
+                                    <option value="false" selected>False</option>
+                                </select>
+                            }
+
+                        }
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu thay đổi" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Trở về", "Index")
+    </div>
+</div>

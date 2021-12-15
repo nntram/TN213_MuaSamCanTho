@@ -1,0 +1,54 @@
+﻿@model TN213_MuaSamCanTho.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="ad-container">
+    <h2>Bạn thực sự muốn xóa tài khoản này?</h2>
+
+    <h3>Điều này nghĩa với việc xóa tài khoản này và các bình luận do tài khoản này thực hiện.</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên đăng nhập
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenDangNhap)
+            </dd>
+
+            
+
+            <dt>
+               Tên người dùng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenNguoiDung)
+            </dd>
+
+            <dt>
+               Quyền quản trị
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QuyenAdmin)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xác nhận xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở về", "Index")
+            </div>
+        }
+    </div>
+</div>
